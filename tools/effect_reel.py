@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a test TAE where Prostration (74010130) shows candidate effects one after another.
+"""Build a test TAE where "Have mercy!" (74010130) shows candidate effects one after another.
 
 Embers spawn at the right hand (dummy 1) and smoke at the face (dummy 255), each in its own time
 slot, so a single in-game run shows every candidate. Writes OUT_TAE and OUT_TAE minus extension + "_reel.txt" (slot sheet).
@@ -21,7 +21,7 @@ SMOKE = [107, 23, 193, 238, 301, 651, 654, 923, 1656, 3010, 3697, 3800, 105, 176
 
 
 def main(src, dst):
-    events, sheet = [], ["Prostration effect reel (times from the start of the gesture)", ""]
+    events, sheet = [], ["Have mercy! effect reel (times from the start of the gesture)", ""]
     sheet.append("EMBER candidates at the right hand (each shown 2.5 s):")
     for k, fx in enumerate(EMBERS):
         start = 0.5 + 2.8 * k

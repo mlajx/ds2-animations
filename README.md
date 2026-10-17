@@ -9,7 +9,7 @@ Current mod content:
 
 | Original gesture | Shown in game as | Internal slot | TAE id | Replaced with |
 |---|---|---|---|---|
-| Prostration | Smoking (pt: Fumar) | `a74_01_0130_Pray` | 74010130 | Mixamo "Smoking" (17.9 s) + cigarette ember/smoke effects |
+| Have mercy! | Smoking (pt: Fumar) | `a74_01_0130_Pray` | 74010130 | Mixamo "Smoking" (17.9 s) + cigarette ember/smoke effects |
 | Welcome | Dancing (pt: Dançar) | `a74_01_0040_Welcome` | 74010040 | Master Chief dance (`animations/default-chief`, action `succ`, 6.8 s) |
 
 ---
@@ -119,7 +119,9 @@ Both are built by `build_mod.py` from two tables:
   polish portuguese russian spanish` under `/menu/text/`) it sets the gesture menu name
   (`ingamemenu.fmg`) and swaps that language's old name inside the gesture item name (`ItemName.fmg`,
   e.g. `"Welcome" Gesture`) and its description (`DetailedExplanation.fmg`). Languages that decline the
-  name instead of quoting it get a sentence rule (`SENTENCE_RULES`, Polish). Inspect any text with
+  name instead of quoting it get a sentence rule (`SENTENCE_RULES`, Polish); texts that call the gesture
+  something else than its menu name (English "Have mercy!" is described as "Beg for life") are rebuilt
+  from the Point gesture's wording (`REFERENCE_GESTURE`). Inspect any text with
   `python3 tools/fmg.py dump extracted/menu/text/english/ingamemenu.fmg Welcome`.
 - **Icons** - `ICONS` in `tools/gesture_icons.py`: `{targetGestureId: (baseGestureId, painter, label)}`.
   Icons are `/menu/tex/icon/IC_00<gestureId>.tpf` (one 64x128 DXT5 texture). A new icon starts from an
@@ -127,8 +129,8 @@ Both are built by `build_mod.py` from two tables:
   colours per 4x4 block, so keep contrasting colours (white vs orange vs dark armour) in separate blocks
   or they blend (that is why the ember sits alone in its block). Preview: `build/gesture_icons_preview.png`.
 
-Gesture ids are the menu ids: `630NN000` with NN = the gesture number (Prostration 16, Welcome 4); the
-same id keys the name, item, description and icon. Current: Prostration -> "Smoking" (pt: "Fumar"),
+Gesture ids are the menu ids: `630NN000` with NN = the gesture number (Have mercy! 15, Prostration 16, Welcome 4); the
+same id keys the name, item, description and icon. Current: Have mercy! (15) -> "Smoking" (pt: "Fumar"),
 icon from "I won't bite" + cigarette; Welcome -> "Dancing" (pt: "Dançar"), icon = mirrored "Fist pump"
 + motion arcs.
 
@@ -187,8 +189,10 @@ icon from "I won't bite" + cigarette; Welcome -> "Dancing" (pt: "Dançar"), icon
 
 ## 8. Gesture slots (internal name -> in-game)
 
-Verified: `0130_Pray` = Prostration (head goes to 0.27 m), `0040_Welcome` = Welcome, `0250_IAmSorryJP` =
-Have mercy! (kneels, arms low). Probable from names: `0010_Foreword` Point, `0020_ComeOn` I won't bite,
+Verified in game: `0130_Pray` = **Have mercy!** (gesture 15; it ends bowed to the floor, which first
+looked like Prostration), `0040_Welcome` = Welcome (gesture 4). Probably `0250_IAmSorryJP` = Prostration
+(16, a Japanese apology bow). Confirm a slot in game before renaming it: replace the animation, play
+every gesture card, and note which one plays it. Probable from names: `0010_Foreword` Point, `0020_ComeOn` I won't bite,
 `0030_MakeaBow` Bow, `0060_Bye` Wave, `0080_Yes` Righty-ho!, `0090_No` No way, `0150_Cutthroat` Decapitate,
 `0270_WarmingUp` Warmup, `0280_Roar` Warcry, `0300_PrayingToTheSun` Praise the Sun, `0050_Saluez` Duel bow?,
 `0070_DelightMale` Joy?, `0310_HardDelight` Fist Pump?, `0100_LeaveItToMe` This one's me?, `0240_Rouse` Hurrah!?,
@@ -208,7 +212,7 @@ Have mercy! (kneels, arms low). Probable from names: `0010_Foreword` Point, `002
 | `tools/anibnd.py` | replace an animation + Morpheme network durations |
 | `tools/tae.py` | TAE show / set-length / add events |
 | `tools/build_mod.py` | build the full payload from `SLOTS` |
-| `tools/cigarette_timeline.py` | Prostration effect timeline |
+| `tools/cigarette_timeline.py` | cigarette effect timeline ("Have mercy!" slot) |
 | `tools/dlse.py`, `tools/sfx_catalog.py`, `tools/ffx_edit.py`, `tools/effect_reel.py` | effects: parse, catalog, tune, test reel |
 | `tools/flver_dummies.py` | add effect attachment points |
 | `tools/fmg.py`, `tools/gesture_text.py` | game text (FMG) read/write, gesture renames in all languages |

@@ -34,7 +34,7 @@ EXTRACTED = os.path.join(ROOT, "extracted")
 # name: substring of the shipped .nsa to replace; tae: its TimeAct id (aXX_YY_ZZZZ -> XXYYZZZZ);
 # nsa: the retargeted animation; events: optional [(start frame @30fps, end frame, effect, dummy, note)]
 SLOTS = [
-    {"name": "a74_01_0130_Pray", "tae": 74010130, "label": "Prostration -> smoking",
+    {"name": "a74_01_0130_Pray", "tae": 74010130, "label": "Have mercy! -> smoking",
      "nsa": "build/smoking/a74_01_0130_Smoking.nsa", "events": cigarette_timeline.TIMELINE},
     {"name": "a74_01_0040_Welcome", "tae": 74010040, "label": "Welcome -> Master Chief dance",
      "nsa": "build/chief/a74_01_0040_Chief.nsa"},

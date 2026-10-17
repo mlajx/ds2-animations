@@ -3,7 +3,7 @@
 
 Icons: /menu/tex/icon/IC_00<gestureId>.tpf in GameDataEbl, a TPF with one 64x128 DXT5 DDS named
 GE_IC_00<gestureId>. A new icon keeps the target's TPF (header, texture name) and only swaps pixels.
-Gesture ids: 63001000 I won't bite, 63004000 Welcome, 63016000 Prostration, 63018000 Fist pump, ...
+Gesture ids: 63001000 I won't bite, 63004000 Welcome, 63015000 Have mercy!, 63016000 Prostration, ...
 
 Usage: gesture_icons.py EXTRACTED_ICON_DIR OUT_DIR      (writes OUT_DIR/IC_00NNNNNNNN.tpf + a preview)
 """
@@ -70,7 +70,7 @@ def dancing(base):
 
 ICONS = {
     # target gesture id: (base gesture id, painter, label)
-    63016000: (63001000, smoking, "Smoking (replaces Prostration)"),
+    63015000: (63001000, smoking, "Smoking (replaces Have mercy!)"),
     63004000: (63018000, dancing, "Dancing (replaces Welcome)"),
 }
 

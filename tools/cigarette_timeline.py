@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write the cigarette effect events into Prostration's TAE entry (74010130).
+"""Write the cigarette effect events into the "Have mercy!" gesture's TAE entry (74010130).
 
 Frame numbers are the Mixamo clip's 30 fps frames. Dummies 900/901 come from flver_dummies.py,
 effects 9101-9103 from ffx_edit.py, 255 is the shipped face dummy.
