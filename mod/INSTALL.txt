@@ -1,0 +1,19 @@
+DS2AnimMod - Dark Souls II: Scholar of the First Sin
+=====================================================
+
+Install
+  1. Back up any dinput8.dll already next to DarkSoulsII.exe (another mod may use that name).
+  2. Copy dinput8.dll, DS2AnimMod.ini and the DS2AnimMod folder next to DarkSoulsII.exe.
+  3. Linux/Steam Deck (Proton): set the game's launch options to
+       WINEDLLOVERRIDES="dinput8=n,b" %command%
+  4. Start the game. DS2AnimMod.log is written next to the exe.
+
+What it does
+  - SteamFix (on by default): removes the achievement/stats work that causes stutter on death.
+  - AnimLoader: any file in the DS2AnimMod folder replaces the archived game file with the same
+    path, e.g. DS2AnimMod\morpheme4\chr\c0001.anibnd.dcx. Delete the folder to play unmodified.
+  Both can be switched off in DS2AnimMod.ini.
+
+Play offline while testing modified files.
+
+Uninstall: delete dinput8.dll, DS2AnimMod.ini and the DS2AnimMod folder.

@@ -1,0 +1,6 @@
+extracted/
+__pycache__/
+build/
+mod/output/
+mod/dist/
+mod/test/*.exe
